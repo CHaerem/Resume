@@ -5,22 +5,23 @@ This repository contains my professional resume written in LaTeX. It is version-
 ## How to Build (macOS)
 
 1. **Install MacTeX** (if not already installed):
-   ```sh
+   ```zsh
    brew install --cask mactex
    # or download from https://tug.org/mactex/
    ```
 2. **Clone the repository:**
-   ```sh
+   ```zsh
    git clone git@github.com:CHaerem/Resume.git
    cd Resume
    ```
 3. **Build the PDF:**
-   - Using the Makefile (recommended):
-     ```sh
-     make
+   - Using Docker (recommended, no local TeX install needed):
+     ```zsh
+     docker run --rm -v "$PWD":/data blang/latex pdflatex resume.tex
+     docker run --rm -v "$PWD":/data blang/latex pdflatex resume.tex
      ```
-   - Or manually:
-     ```sh
+   - Or manually (if you have pdflatex):
+     ```zsh
      pdflatex resume.tex
      pdflatex resume.tex  # Run twice for references
      ```
@@ -28,17 +29,22 @@ This repository contains my professional resume written in LaTeX. It is version-
 The output will be `resume.pdf` in the same directory.
 
 ## Files
+
 - `resume.tex`: Main LaTeX source file
 - `profile.jpeg`: Profile photo (add your image here)
-- `Makefile`: For easy build and cleanup
-- `.gitignore`: Ignores LaTeX build artifacts
+- `README.md`: This file
+- `.gitignore`: Ignores LaTeX build artifacts, but tracks `resume.pdf`
+- `resume.pdf`: Built PDF version of your resume
 
 ## Customization
+
 - Edit `resume.tex` to update your information.
 - Replace `profile.jpeg` with your own photo (optional).
 
 ## Repository
+
 This project is hosted privately at: [github.com/CHaerem/Resume](https://github.com/CHaerem/Resume)
 
 ## License
+
 Personal use only. Contact the author for other uses.

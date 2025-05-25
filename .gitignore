@@ -1,8 +1,9 @@
-# Ignore LaTeX build files
+# Ignore LaTeX build files, but allow resume.pdf
 *.aux
 *.log
 *.out
 *.toc
+!resume.pdf
 *.pdf
 *.synctex.gz
 *.fdb_latexmk
