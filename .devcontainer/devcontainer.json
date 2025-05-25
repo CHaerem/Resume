@@ -1,7 +1,10 @@
 {
   "name": "LaTeX Resume",
-  "image": "ghcr.io/xu-cheng/texlive-full:latest",
-  "postCreateCommand": "pdflatex resume.tex || true",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspaces/Resume",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/Resume,type=bind,consistency=cached",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -9,5 +12,5 @@
       ]
     }
   },
-  "features": {}
+  "postCreateCommand": "pdflatex resume.tex || true"
 }
